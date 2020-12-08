@@ -182,6 +182,19 @@ cig_butts_dataset = dataset_base.copy({
   'label_map': { 1:  1 }
 })
 
+REGIONS_CLASSES = ("lefteye", "righteye", "leftnlf", "rightnlf", "leftmouth", "leftmouth")
+                  
+
+regions_dataset = dataset_base.copy({
+  'name': 'Regions',
+  'train_info': './data/regions/train/via_region_data.json',
+  'train_images': './data/regions/train/images/',
+  'valid_info': './data/regions/val/via_region_data.json',
+  'valid_images': './data/regions/val/images/',
+  'class_names': REGIONS_CLASSES,
+  'label_map': { 1:  1 }
+})
+
 
 
 # ----------------------- TRANSFORMS ----------------------- #
@@ -780,6 +793,16 @@ yolact_resnet50_cig_butts_config = yolact_resnet50_config.copy({
     # Dataset stuff
     'dataset': cig_butts_dataset,
     'num_classes': len(cig_butts_dataset.class_names) + 1,
+
+    # Image Size
+    'max_size': 512,
+})
+
+yolact_resnet50_regions_config = yolact_resnet50_config.copy({
+    'name': 'yolact_plus_resnet50_regions',
+    # Dataset stuff
+    'dataset': regions_dataset,
+    'num_classes': len(regions_dataset.class_names) + 1,
 
     # Image Size
     'max_size': 512,
