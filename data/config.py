@@ -182,8 +182,7 @@ cig_butts_dataset = dataset_base.copy({
   'label_map': { 1:  1 }
 })
 
-REGIONS_CLASSES = ("lefteye", "righteye", "leftnlf", "rightnlf", "leftmouth", "leftmouth")
-                  
+REGIONS_CLASSES = ("lefteye", "righteye", "leftnlf", "rightnlf", "leftmouth", "leftmouth")                  
 
 regions_dataset = dataset_base.copy({
   'name': 'Regions',
@@ -191,8 +190,8 @@ regions_dataset = dataset_base.copy({
   'train_images': './data/regions/train/images/',
   'valid_info': './data/regions/val/via_region_data.json',
   'valid_images': './data/regions/val/images/',
-  'class_names': REGIONS_CLASSES,
-  'label_map': { 1:  1 }
+  'has_gt': True,
+  'class_names': REGIONS_CLASSES
 })
 
 
